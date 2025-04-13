@@ -1,7 +1,7 @@
 import { Linkedin, Github, Mail } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { ToggleDarkMode } from "./toggleDarkMode";
+import { ToggleDarkMode } from "../ui/toggleDarkMode";
 
 export default function Header() {
   return (
