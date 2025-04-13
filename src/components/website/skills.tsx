@@ -7,6 +7,21 @@ interface skillsDataProps {
   url: string;
 }
 
+function SkillCard({ data }: { data: skillsDataProps }) {
+  return (
+    <div className="group dark:bg-[#212121] bg-[#898989] hover:bg-[#4d4d4d] transition-colors rounded-xl text-center p-5">
+      <Image
+        src={`/skills/${data.url}`}
+        alt={data.url}
+        width={100}
+        height={100}
+        className="grayscale group-hover:grayscale-0"
+      />
+      <span className="text-secondary dark:text-primary">{data.name}</span>
+    </div>
+  );
+}
+
 export default function Skills() {
   const skillsData: skillsDataProps[] = [
     {
@@ -43,7 +58,7 @@ export default function Skills() {
 
   return (
     <section className="flex justify-center" id="skills">
-      <div className="max-w-screen-xl grid grid-cols-1 md:grid-cols-2 w-full">
+      <div className="max-w-screen-xl grid grid-cols-1 md:grid-cols-2 w-full max-md:space-y-14">
         <div className="">
           <h2 className="text-3xl font-extrabold tracking-[-0.02em] md:text-5xl lg:text-5xl md:leading-[4rem]">
             Skills
@@ -59,20 +74,8 @@ export default function Skills() {
         </div>
         <div>
           <div className="grid grid-cols-2 place-items-center gap-10">
-            {skillsData.map(({ url, name }, index) => (
-              <div
-                key={index}
-                className="group dark:bg-[#212121] bg-[#898989] hover:bg-[#4d4d4d] transition-colors rounded-xl text-center p-5"
-              >
-                <Image
-                  src={`/skills/${url}`}
-                  alt={url}
-                  width={100}
-                  height={100}
-                  className="grayscale group-hover:grayscale-0"
-                />
-                <span className="text-secondary dark:text-primary">{name}</span>
-              </div>
+            {skillsData.map((skillsData, index) => (
+              <SkillCard key={index} data={skillsData} />
             ))}
           </div>
         </div>
