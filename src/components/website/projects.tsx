@@ -23,10 +23,10 @@ function ProjectsCard({ data }: { data: ProjectsCardProps }) {
           className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-50"
         />
 
-        <h3 className="hidden absolute group-hover:block bottom-15 px-5 font-black">
+        <h3 className="hidden absolute group-hover:block bottom-15 px-5 font-black text-gray-400">
           {data.title}
         </h3>
-        <p className="hidden absolute group-hover:block bottom-5 px-5 leading-5">
+        <p className="hidden absolute group-hover:block bottom-5 px-5 leading-5 text-gray-400">
           {data.description}
         </p>
       </Link>
