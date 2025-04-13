@@ -41,7 +41,7 @@ export default function Projects() {
       title: "Portfolio",
       description:
         "A personal portfolio website to showcase myself and my work.",
-      link: "#",
+      link: "https://github.com/Tobias-fernandes/portfolio-tobias",
     },
     {
       imgSrc: "portfolio.png",
