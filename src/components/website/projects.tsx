@@ -10,7 +10,7 @@ interface ProjectsCardProps {
 
 function ProjectsCard({ data }: { data: ProjectsCardProps }) {
   return (
-    <div className="relative group max-sm:w-full w-[275px] hover:w-[400px] h-[500px] shadow-lg rounded-lg overflow-hidden transition-all duration-300">
+    <div className="relative group max-md:w-full md:w-[275px] md:hover:w-[400px] h-[500px] shadow-lg rounded-lg overflow-hidden transition-all duration-300">
       <Link href={data.link} target="_blank">
         <Image
           src={`/projects/${data.imgSrc}`}
@@ -61,7 +61,7 @@ export default function Projects() {
       <h2 className="text-3xl text-center my-5 font-extrabold tracking-[-0.02em] md:text-5xl lg:text-5xl md:leading-[4rem]">
         Projects
       </h2>
-      <div className="flex flex-wrap justify-center gap-10 transition-all duration-300">
+      <div className="flex flex-col md:flex-row justify-center gap-10 transition-all duration-300">
         {projectsData.map((project, index) => (
           <ProjectsCard key={index} data={project} />
         ))}

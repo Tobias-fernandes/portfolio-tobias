@@ -46,17 +46,16 @@ export default function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      console.log("values", values);
-      //   create a promisse that takes 2 seconds to resolve
-      // await new Promise((resolve) => setTimeout(resolve, 2000));
-      // // generate a random number between 1 and 4
-      // const randomNumber = Math.floor(Math.random() * 4) + 1;
-      // if (randomNumber > 0) {
-      //   throw new Error("An error occurred while sending the message.");
-      // } else {
-      //   toast.success("Message sent successfully!");
-      //   form.reset();
-      // }
+      await fetch("/api/mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      toast.success("Mensage sent! Thank You.");
+      form.reset();
     } catch (error) {
       toast.error((error as Error).message);
     }
