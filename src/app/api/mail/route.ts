@@ -2,6 +2,17 @@ import { render } from "@react-email/render";
 import Email from "@/../emails";
 import { Resend } from "resend";
 
+const FRONTEND_ORIGIN = `${process.env.FRONTEND_URL}`;
+
+// Headers CORS
+function allowCors() {
+  return {
+    "Access-Control-Allow-Origin": FRONTEND_ORIGIN,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
@@ -15,8 +26,34 @@ export async function POST(request: Request) {
   });
 
   if (error) {
-    throw new Error("An error ocurred. Check your connection and try again");
+    return new Response(
+      JSON.stringify({
+        error: "An error occurred. Check your connection and try again.",
+      }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+          ...allowCors(),
+        },
+      }
+    );
   }
 
-  return Response.json({ message: "Email sent successfully" });
+  return new Response(JSON.stringify({ message: "Email sent successfully" }), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+      ...allowCors(),
+    },
+  });
+}
+
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      ...allowCors(),
+    },
+  });
 }
