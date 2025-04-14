@@ -46,7 +46,7 @@ export default function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      await fetch("/api/mail", {
+      await fetch(`${process.env.API_URL}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
