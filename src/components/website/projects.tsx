@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Skeleton } from "../ui/skeleton";
 
 interface ProjectsCardProps {
   imgSrc: string;
@@ -12,23 +13,25 @@ function ProjectsCard({ data }: { data: ProjectsCardProps }) {
   return (
     <div className="relative group max-md:w-full md:w-[275px] md:hover:w-[400px] h-[500px] shadow-lg rounded-lg overflow-hidden transition-all duration-300">
       <Link href={data.link} target="_blank">
-        <Image
-          src={`/projects/${data.imgSrc}`}
-          alt={data.title}
-          width={150}
-          height={150}
-          priority
-          quality={100}
-          unoptimized
-          className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-50"
-        />
-
-        <h3 className="hidden absolute group-hover:block bottom-15 px-5 font-black text-gray-400">
-          {data.title}
+        {data.imgSrc ? (
+          <Image
+            src={`/projects/${data.imgSrc}`}
+            alt={data.title}
+            width={150}
+            height={150}
+            priority
+            quality={100}
+            unoptimized
+            className="max-sm:brightness-50 rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-50"
+          />
+        ) : (
+          <Skeleton className="w-full h-full" />
+        )}
+        <h3 className="sm:hidden absolute group-hover:block bottom-10 px-5">
+          <span className="font-black text-gray-400">{data.title}</span>
+          <br />
+          <span className="leading-5 text-gray-400">{data.description}</span>
         </h3>
-        <p className="hidden absolute group-hover:block bottom-5 px-5 leading-5 text-gray-400">
-          {data.description}
-        </p>
       </Link>
     </div>
   );
@@ -44,15 +47,15 @@ export default function Projects() {
       link: "https://github.com/Tobias-fernandes/portfolio-tobias",
     },
     {
-      imgSrc: "portfolio.png",
-      title: "Tobias",
-      description: "A web application for managing tasks and projects.",
-      link: "#",
+      imgSrc: "wordle.png",
+      title: "Worlde Game",
+      description: "A web game to try to discover a random word",
+      link: "https://github.com/Tobias-fernandes/WordleGame",
     },
     {
-      imgSrc: "portfolio.png",
+      imgSrc: "",
       title: "Soon...",
-      description: "",
+      description: "Project in development",
       link: "#",
     },
   ];

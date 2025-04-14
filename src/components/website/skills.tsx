@@ -15,7 +15,7 @@ function SkillCard({ data }: { data: skillsDataProps }) {
         alt={data.url}
         width={100}
         height={100}
-        className="grayscale group-hover:grayscale-0"
+        className="sm:grayscale sm:group-hover:grayscale-0"
       />
       <span className="text-secondary dark:text-primary">{data.name}</span>
     </div>
