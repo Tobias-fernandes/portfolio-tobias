@@ -17,11 +17,18 @@ const ToggleDarkMode = ({
   variant = "outline",
   iconSize = 5,
 }: IToggleDarkMode) => {
-  const { theme, setTheme } = useTheme();
+  const { theme, systemTheme, setTheme } = useTheme();
 
   const [mounted, setMounted] = useState<boolean>(false);
+  const [initialTheme, setInitialTheme] = useState<"light" | "dark">("light");
+
+  const currentTheme = theme === "system" ? systemTheme || initialTheme : theme;
 
   const setMountedTrue = useCallback(() => {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    setInitialTheme(prefersDark ? "dark" : "light");
     setMounted(true);
   }, []);
 
@@ -38,7 +45,7 @@ const ToggleDarkMode = ({
 
   return (
     <>
-      {theme === "dark" ? (
+      {currentTheme === "dark" && (
         <Button
           variant={variant}
           className={className}
@@ -46,7 +53,8 @@ const ToggleDarkMode = ({
         >
           <Moon className={`size-${iconSize}`} />
         </Button>
-      ) : (
+      )}
+      {currentTheme === "light" && (
         <Button
           variant={variant}
           className={className}

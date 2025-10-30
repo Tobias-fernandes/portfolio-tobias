@@ -10,15 +10,23 @@ const Header: React.FC = () => {
       {/* Desktop */}
       <div className="hidden sm:flex justify-around py-4 fixed top-0 left-0 backdrop-blur-md right-0 z-10">
         <nav>
-          <Button asChild variant={"ghost"}>
-            <Link href={"/"}>
-              <House className="size-6" />
-            </Link>
-          </Button>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button asChild variant={"ghost"}>
+                <Link href={"/"}>
+                  <House className="size-6" />
+                </Link>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>Get home</TooltipContent>
+          </Tooltip>
         </nav>
-        <div>
-          <ToggleDarkMode />
-        </div>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <ToggleDarkMode variant="ghost" iconSize={6} />
+          </TooltipTrigger>
+          <TooltipContent>Change theme</TooltipContent>
+        </Tooltip>
       </div>
 
       {/* Mobile */}

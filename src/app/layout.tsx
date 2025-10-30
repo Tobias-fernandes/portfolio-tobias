@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { ReactNode } from "react";
+import CookieConsent from "@/components/ui/cookie-consent";
 
 const karla = Karla({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         >
           {children}
           <Toaster richColors />
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>
