@@ -1,13 +1,13 @@
 import { Progress } from "../ui/progress";
 import Image from "next/image";
 
-interface skillsDataProps {
+interface ISkillCard {
   name: string;
   percentual: number;
   url: string;
 }
 
-const SkillCard: React.FC<{ data: skillsDataProps }> = ({ data }) => {
+const SkillCard: React.FC<{ data: ISkillCard }> = ({ data }) => {
   return (
     <div className="group dark:bg-[#212121] bg-[#898989] hover:bg-[#4d4d4d] transition-colors rounded-xl text-center p-5">
       <Image
@@ -15,7 +15,7 @@ const SkillCard: React.FC<{ data: skillsDataProps }> = ({ data }) => {
         alt={data.url}
         width={100}
         height={100}
-        className="sm:grayscale sm:group-hover:grayscale-0"
+        className="sm:grayscale sm:group-hover:grayscale-0 w-24 h-24 mx-auto object-contain"
       />
       <span className="text-secondary dark:text-primary">{data.name}</span>
     </div>
@@ -23,7 +23,7 @@ const SkillCard: React.FC<{ data: skillsDataProps }> = ({ data }) => {
 };
 
 const Skills: React.FC = () => {
-  const skillsData: skillsDataProps[] = [
+  const skillsData: ISkillCard[] = [
     {
       name: "React.js",
       percentual: 90,
@@ -35,9 +35,9 @@ const Skills: React.FC = () => {
       url: "nextjs-icon.svg",
     },
     {
-      name: "Cypress",
-      percentual: 50,
-      url: "cypress-icon.svg",
+      name: "AWS",
+      percentual: 35,
+      url: "aws-icon.svg",
     },
     {
       name: "Nest.js",
@@ -45,9 +45,9 @@ const Skills: React.FC = () => {
       url: "nestjs-icon.svg",
     },
     {
-      name: "Prisma",
+      name: "Figma",
       percentual: 80,
-      url: "prisma-icon.svg",
+      url: "figma-icon.svg",
     },
     {
       name: "TypeScript",
