@@ -57,7 +57,7 @@ const Header = () => {
       </div>
 
       {/* mobile */}
-      <div className="flex sm:hidden justify-between gap-4 py-4 fixed bottom-8 left-0 backdrop-brightness-75 backdrop-blur-md right-0 z-10 mx-10 px-2 rounded-4xl text-white">
+      <div className="flex sm:hidden justify-between gap-4 py-4 fixed bottom-8 left-0 backdrop-brightness-75 backdrop-blur-md right-0 z-10 mx-10 px-4 rounded-4xl">
         <nav className="">
           <ul className="flex gap-2">
             <Tooltip>
@@ -108,7 +108,7 @@ const Header = () => {
             <TooltipContent>tobys312@gmail.com</TooltipContent>
           </Tooltip>
           <Tooltip>
-            <TooltipTrigger>
+            <TooltipTrigger asChild>
               <ToggleDarkMode variant="ghost" iconSize={6} />
             </TooltipTrigger>
             <TooltipContent>Change theme</TooltipContent>

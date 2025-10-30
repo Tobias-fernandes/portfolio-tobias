@@ -1,5 +1,5 @@
 import ContactForm from "@/components/contact/form";
-import { Headset } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const Contact: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
       </h1>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2">
         <div className="hidden sm:flex justify-center items-center w-full h-full">
-          <Headset size={225} />
+          <Mail size={225} />
         </div>
         <ContactForm />
       </div>
