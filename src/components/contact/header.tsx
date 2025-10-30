@@ -32,7 +32,7 @@ const Header: React.FC = () => {
                 </Link>
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Change theme</TooltipContent>
+            <TooltipContent>Get home</TooltipContent>
           </Tooltip>
         </nav>
         <Tooltip>
