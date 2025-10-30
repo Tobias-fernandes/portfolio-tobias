@@ -2,12 +2,9 @@ import { render } from "@react-email/render";
 import Email from "@/../emails";
 import { Resend } from "resend";
 
-const FRONTEND_ORIGIN = `${process.env.FRONTEND_URL}`;
-
-// Headers CORS
 function allowCors() {
   return {
-    "Access-Control-Allow-Origin": FRONTEND_ORIGIN,
+    "Access-Control-Allow-Origin": "localhost:3000",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
   };

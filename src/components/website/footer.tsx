@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export default function Footer({ className }: { className?: string }) {
+const Footer: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <footer className={cn("py-5 mt-20", className)}>
       <h2 className="text-center text-sm md:text-base font-extrabold uppercase">
@@ -8,4 +8,6 @@ export default function Footer({ className }: { className?: string }) {
       </h2>
     </footer>
   );
-}
+};
+
+export default Footer;

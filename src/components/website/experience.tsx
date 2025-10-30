@@ -15,7 +15,7 @@ interface ExperienceProps {
   list: string[];
 }
 
-function CardComponent({ data }: { data: ExperienceProps }) {
+const CardComponent: React.FC<{ data: ExperienceProps }> = ({ data }) => {
   return (
     <Card className="bg-[#898989] dark:bg-[#4d4d4d] text-secondary dark:text-primary">
       <CardHeader>
@@ -40,9 +40,9 @@ function CardComponent({ data }: { data: ExperienceProps }) {
       <CardFooter></CardFooter>
     </Card>
   );
-}
+};
 
-export default function Experience() {
+const Experience: React.FC = () => {
   const experienceData: ExperienceProps[] = [
     {
       jobPosition: "Software Engineer",
@@ -50,22 +50,21 @@ export default function Experience() {
       dateStart: "Sep 2023",
       dateEnd: "Present",
       list: [
-        "Developed and maintained web applications using React/NextJS and Node.js.",
+        "Developing and maintaining web applications using React/NextJS and Node.js.",
         "Collaborated with cross-functional teams to design and implement new features.",
         "Participated in code reviews and contributed to team knowledge sharing.",
-        "Currenly at General Director of AltoTech Juniors.",
+        "Currently at General Director of AltoTech Juniors.",
       ],
     },
     {
-      jobPosition: "Web Developer",
-      companyName: "Saudeker",
-      dateStart: "Oct 2024",
-      dateEnd: "Feb 2025",
+      jobPosition: "Front-End Developer",
+      companyName: "GreenFy",
+      dateStart: "Jun 2025",
+      dateEnd: "Present",
       list: [
-        "Designed and developed responsive websites using NextJS",
+        "Developing and maintaining web applications using React.js.",
         "Worked closely with designers to ensure a seamless user experience.",
         "Optimized website performance and SEO best practices.",
-        "Implemented tests using Cypress to ensure code quality and reliability.",
       ],
     },
   ];
@@ -87,4 +86,6 @@ export default function Experience() {
       </div>
     </section>
   );
-}
+};
+
+export default Experience;

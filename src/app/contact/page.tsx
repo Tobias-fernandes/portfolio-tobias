@@ -1,7 +1,7 @@
 import ContactForm from "@/components/contact/form";
 import { Headset } from "lucide-react";
 
-export default function Contact() {
+const Contact: React.FC = () => {
   return (
     <section className="-mt-[69px] h-screen flex flex-col gap-10 items-center justify-center max-w-screen-lg mx-auto">
       <h1 className="uppercase text-4xl font-extrabold tracking-[-0.02em] md:text-5xl lg:text-6xl md:leading-[4rem]">
@@ -15,4 +15,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+
+export default Contact;

@@ -34,7 +34,7 @@ const formSchema = z.object({
     }),
 });
 
-export default function ContactForm() {
+const ContactForm: React.FC = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,9 +44,9 @@ export default function ContactForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,10 +54,14 @@ export default function ContactForm() {
         body: JSON.stringify(values),
       });
 
-      toast.success("Mensage sent! Thank You.");
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`);
+      }
+
+      toast.success("Message sent! Thank you.");
       form.reset();
     } catch (error) {
-      toast.error((error as Error).message);
+      toast.error((error as Error).message || "Failed to send message.");
     }
   }
   return (
@@ -123,4 +127,6 @@ export default function ContactForm() {
       </form>
     </Form>
   );
-}
+};
+
+export default ContactForm;

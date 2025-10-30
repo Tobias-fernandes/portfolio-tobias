@@ -3,6 +3,7 @@ import { Karla } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { ReactNode } from "react";
 
 const karla = Karla({
   subsets: ["latin"],
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html className="scroll-smooth" lang="en" suppressHydrationWarning>

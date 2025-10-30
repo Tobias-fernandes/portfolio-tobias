@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Skeleton } from "../ui/skeleton";
 
 interface ProjectsCardProps {
   imgSrc: string;
@@ -9,11 +8,11 @@ interface ProjectsCardProps {
   link: string;
 }
 
-function ProjectsCard({ data }: { data: ProjectsCardProps }) {
+const ProjectsCard: React.FC<{ data: ProjectsCardProps }> = ({ data }) => {
   return (
     <div className="relative group max-md:w-full md:w-[275px] md:hover:w-[400px] h-[500px] shadow-lg rounded-lg overflow-hidden transition-all duration-300">
       <Link href={data.link} target="_blank">
-        {data.imgSrc ? (
+        {data.imgSrc && (
           <Image
             src={`/projects/${data.imgSrc}`}
             alt={data.title}
@@ -24,9 +23,8 @@ function ProjectsCard({ data }: { data: ProjectsCardProps }) {
             unoptimized
             className="max-sm:brightness-50 rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-50"
           />
-        ) : (
-          <Skeleton className="w-full h-full" />
         )}
+        {!data.imgSrc && <div className="w-full h-full bg-accent" />}
         <h3 className="sm:hidden absolute group-hover:block bottom-10 px-5">
           <span className="font-black text-gray-400">{data.title}</span>
           <br />
@@ -35,9 +33,9 @@ function ProjectsCard({ data }: { data: ProjectsCardProps }) {
       </Link>
     </div>
   );
-}
+};
 
-export default function Projects() {
+const Projects: React.FC = () => {
   const projectsData: ProjectsCardProps[] = [
     {
       imgSrc: "portfolio.png",
@@ -56,7 +54,7 @@ export default function Projects() {
       imgSrc: "",
       title: "Soon...",
       description: "Project in development",
-      link: "#",
+      link: "",
     },
   ];
   return (
@@ -71,4 +69,6 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+};
+
+export default Projects;

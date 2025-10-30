@@ -7,7 +7,7 @@ interface skillsDataProps {
   url: string;
 }
 
-function SkillCard({ data }: { data: skillsDataProps }) {
+const SkillCard: React.FC<{ data: skillsDataProps }> = ({ data }) => {
   return (
     <div className="group dark:bg-[#212121] bg-[#898989] hover:bg-[#4d4d4d] transition-colors rounded-xl text-center p-5">
       <Image
@@ -20,9 +20,9 @@ function SkillCard({ data }: { data: skillsDataProps }) {
       <span className="text-secondary dark:text-primary">{data.name}</span>
     </div>
   );
-}
+};
 
-export default function Skills() {
+const Skills: React.FC = () => {
   const skillsData: skillsDataProps[] = [
     {
       name: "React.js",
@@ -40,9 +40,9 @@ export default function Skills() {
       url: "cypress-icon.svg",
     },
     {
-      name: "Node.js",
+      name: "Nest.js",
       percentual: 60,
-      url: "nodejs-icon.svg",
+      url: "nestjs-icon.svg",
     },
     {
       name: "Prisma",
@@ -82,4 +82,6 @@ export default function Skills() {
       </div>
     </section>
   );
-}
+};
+
+export default Skills;

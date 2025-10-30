@@ -1,47 +1,62 @@
 "use client";
 
-import * as React from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Moon, Sun, Loader2Icon } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
 
-// Simplified button for toggle
-export function ToggleDarkMode({ className }: { className?: string }) {
-  const [mounted, setMounted] = useState(false); // useState to store the mounted state
+interface IToggleDarkMode {
+  className?: string;
+  variant?: "outline" | "ghost";
+  iconSize?: number;
+}
 
-  // useEffect used to solve hydration problem
-  useEffect(() => {
+const ToggleDarkMode = ({
+  className,
+  variant = "outline",
+  iconSize = 5,
+}: IToggleDarkMode) => {
+  const { theme, setTheme } = useTheme();
+
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  const setMountedTrue = useCallback(() => {
     setMounted(true);
   }, []);
-  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMountedTrue();
+  }, [setMountedTrue]);
+
   if (!mounted)
     return (
-      <Button variant={"outline"} className={cn("", className)}>
+      <Button variant={"outline"} className={className}>
         <Loader2Icon className="animate-spin" />
       </Button>
     );
+
   return (
     <>
       {theme === "dark" ? (
         <Button
-          variant={"outline"}
-          className={cn("", className)}
+          variant={variant}
+          className={className}
           onClick={() => setTheme("light")}
         >
-          <Moon />
+          <Moon className={`size-${iconSize}`} />
         </Button>
       ) : (
         <Button
-          variant={"outline"}
-          className={cn("", className)}
+          variant={variant}
+          className={className}
           onClick={() => setTheme("dark")}
         >
-          <Sun />
+          <Sun className={`size-${iconSize}`} />
         </Button>
       )}
     </>
   );
-}
+};
+
+export { ToggleDarkMode };

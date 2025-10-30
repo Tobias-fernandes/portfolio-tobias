@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, PackageOpen } from "lucide-react";
 import Link from "next/link";
 
-export default function NotFound() {
+const NotFound: React.FC = () => {
   return (
     <section className="h-screen w-screen flex justify-center items-center">
       <div className="max-w-lg flex flex-col items-center space-y-4">
@@ -23,4 +23,6 @@ export default function NotFound() {
       </div>
     </section>
   );
-}
+};
+
+export default NotFound;

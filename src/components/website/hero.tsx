@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
-function Avatar({ className }: { className?: string }) {
+const Avatar: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <AvatarRoot className={cn(className)}>
       <AvatarImage src="/tobias-photo.jpg" alt="profile photo" />
@@ -17,9 +17,9 @@ function Avatar({ className }: { className?: string }) {
       </AvatarFallback>
     </AvatarRoot>
   );
-}
+};
 
-export default function Hero() {
+const Hero: React.FC = () => {
   const sections = [
     { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
@@ -28,7 +28,7 @@ export default function Hero() {
 
   return (
     <section className="flex flex-col space-y-5 h-screen items-center justify-center ">
-      <Avatar className="size-44" />
+      <Avatar className="size-44 sm:size-52 md:size-64" />
       <div className="flex flex-col items-center space-y-2">
         <h2 className="uppercase text-primary/75 tracking-[0.3em] sm:tracking-[0.5em] text-base md:text-lg lg:text-xl">
           Software Engineer
@@ -51,4 +51,6 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+};
+
+export default Hero;
