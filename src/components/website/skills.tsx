@@ -16,7 +16,7 @@ const SkillCard: React.FC<{ data: ISkillCard }> = ({ data }) => {
         width={100}
         height={100}
         className="w-24 h-24 mx-auto object-contain transition-all duration-300
-             brightness-0 invert-[1] opacity-60
+             sm:brightness-0 sm:invert-[1] sm:opacity-60
              group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100"
       />
       <span className="text-secondary dark:text-primary">{data.name}</span>
