@@ -3,12 +3,15 @@
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { getCookie, setCookie } from "@/lib/cookies";
+
+const COOKIE_NAME = "cookie-consent";
 
 const CookieConsent: React.FC = () => {
   const [visible, setVisible] = useState<boolean>(false);
 
   const handleAccept = () => {
-    localStorage.setItem("cookie-consent", "accepted");
+    setCookie(COOKIE_NAME, "true");
     setVisible(false);
   };
 
@@ -16,16 +19,16 @@ const CookieConsent: React.FC = () => {
     setVisible(false);
   };
 
-  const getCookieConsent = useCallback(() => {
-    const consent = localStorage.getItem("cookie-consent");
+  const checkCookieConsent = useCallback(() => {
+    const consent = getCookie(COOKIE_NAME);
     if (!consent) {
       setVisible(true);
     }
   }, []);
 
   useEffect(() => {
-    getCookieConsent();
-  }, [getCookieConsent]);
+    checkCookieConsent();
+  }, [checkCookieConsent]);
 
   if (!visible) return null;
 

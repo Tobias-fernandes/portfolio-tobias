@@ -63,7 +63,8 @@ const ContactForm: React.FC = () => {
     } catch (error) {
       toast.error((error as Error).message || "Failed to send message.");
     }
-  }
+  };
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
