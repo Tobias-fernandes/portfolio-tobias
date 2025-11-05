@@ -45,10 +45,11 @@ const Projects: React.FC = () => {
       link: "https://github.com/Tobias-fernandes/portfolio-tobias",
     },
     {
-      imgSrc: "wordle.png",
-      title: "Worlde Game",
-      description: "A web game to try to discover a random word",
-      link: "https://github.com/Tobias-fernandes/WordleGame",
+      imgSrc: "task-center.png",
+      title: "Task Center",
+      description:
+        "A web application to manage tasks and projects with Drag and Drop.",
+      link: "https://github.com/Tobias-fernandes/task-dragdrop",
     },
     {
       imgSrc: "",
