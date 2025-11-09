@@ -38,11 +38,11 @@ const ProjectsCard: React.FC<{ data: ProjectsCardProps }> = ({ data }) => {
 const Projects: React.FC = () => {
   const projectsData: ProjectsCardProps[] = [
     {
-      imgSrc: "portfolio.png",
-      title: "Portfolio",
+      imgSrc: "web-socket.png",
+      title: "Web Socket Chat App",
       description:
-        "A personal portfolio website to showcase myself and my work.",
-      link: "https://github.com/Tobias-fernandes/portfolio-tobias",
+        "A real-time chat application built with WebSocket technology.",
+      link: "https://github.com/Tobias-fernandes/chat-websocket",
     },
     {
       imgSrc: "task-center.png",
@@ -52,10 +52,10 @@ const Projects: React.FC = () => {
       link: "https://github.com/Tobias-fernandes/task-dragdrop",
     },
     {
-      imgSrc: "",
-      title: "Soon...",
-      description: "Project in development",
-      link: "",
+      imgSrc: "clap-money.png",
+      title: "Clap Money",
+      description: "A finance management app to track expenses and income.",
+      link: "https://github.com/Tobias-fernandes/clap-money",
     },
   ];
   return (
